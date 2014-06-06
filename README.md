@@ -5,4 +5,5 @@ Just fun !
 
 ## Make you magic circle ! ##
 
-## ... ##
+## Update ##
+*Change to CSS only
