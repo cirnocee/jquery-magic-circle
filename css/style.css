@@ -1,65 +1,107 @@
-/*
-	 CSS-Tricks Example
-	 by Chris Coyier
-	 http://css-tricks.com
-*/
-
-* { margin: 0; padding: 0; }
-body { font: 14px Georgia, serif; background: black;}
-
-article, aside, figure, footer, header, hgroup,
-menu, nav, section { display: block; }
-
-#page-wrap { width: 960px; margin: 80px auto; }
-
-.badge {
-  position: relative;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-}
-
-@font-face
-{
-  font-family: myFirstFont;
+@font-face{
+  font-family: MagicRing;
   src: url(MagicRing.ttf);
 }
 
-h1 span {
-  font: 24px myFirstFont, Monaco, MonoSpace;
-  height: 300px;
+body {
+    background:black;
+}
+/*
+ *
+ * *******************
+ * Ring
+ * *******************
+ *
+ */
+.ring{
+    font: 24px MagicRing, Monaco, MonoSpace;
+    color:white;
+    text-shadow:-1px  1px 20px rgba(237, 112, 215, 0.7),
+                 1px  1px 20px rgba(237, 112, 215, 0.7),
+                 1px -1px 20px rgba(237, 112, 215, 0.7),
+                -1px -1px 20px rgba(237, 112, 215, 0.7);
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width:20px;
+    height:20px;
+    margin: auto;
+    -webkit-transform-origin: center;
+    -moz-transform-origin: center;
+    -ms-transform-origin: center;
+    -o-transform-origin: center;
+    transform-origin: center;
+}
+
+/*
+ *
+ * *******************
+ * Ring Text
+ * *******************
+ *
+ */
+#Ring1 span {height:150px;}
+#Ring2 span {height:250px;}
+#Ring3 span {height:350px;}
+#Ring4 span {height:450px;}
+#Ring5 span {height:550px;}
+
+.ring span {
   position: absolute;
-  width: 20px;
-  left: 50%;
-  top: 0;
-  -webkit-transform-origin: 50% 50%;
-  -moz-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  -o-transform-origin: 50% 50%;
-  transform-origin: 50% 50%;
+  margin:auto;top:0;left:0;bottom:0;right:0;
+    width:20px;
+  -webkit-transform-origin: center;
+  -moz-transform-origin: center;
+  -ms-transform-origin: center;
+  -o-transform-origin: center;
+  transform-origin: center;
 }
 
-h1 .token {
-  -moz-box-shadow: 0px 0px 30px rgba(177, 17, 22, 1);
-  -webkit-box-shadow: 0px 0px 30px rgba(177, 17, 22, 1);
-  box-shadow: 0px 0px 30px rgba(177, 17, 22, 1);
-  color: rgba(177, 17, 22, 1) ;
+/*
+ *
+ * *******************
+ * Animation
+ * *******************
+ *
+ */
+ 
+.ring:nth-child(2n) {
+    -webkit-animation: counter-clockwise 50s linear infinite; /* Chrome, Safari, Opera */
+    animation: counter-clockwise 50s linear infinite;
 }
-.center-content {
-	position: absolute;
-  	left: 50%;
-  	top: 50%;
-
-  	margin-top: -20px;
-  	margin-left: -30px;
-
-  	font: 32px Georgia, Monaco, MonoSpace;
-  	color: rgba(177, 17, 22, 1);
-  	font-weight: 900;
+.ring:nth-child(2n+1) {
+    -webkit-animation: clockwise 50s linear infinite; /* Chrome, Safari, Opera */
+    animation: clockwise 50s linear infinite;
 }
-.center-content:hover{
-  -moz-box-shadow: 0px 0px 30px rgba(177, 17, 22, 1);
-  -webkit-box-shadow: 0px 0px 30px rgba(177, 17, 22, 1);
-  box-shadow: 0px 0px 30px rgba(177, 17, 22, 1);
-	transition: rgba(177, 17, 22, 1) .5s;
+
+/* 
+ * *******************
+ * 逆時針動畫
+ * *******************
+ */
+@keyframes counter-clockwise {
+  from {-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-ms-transform: rotate(0deg);-o-transform: rotate(0deg);transform: rotate(0deg);}
+  to   {-webkit-transform: rotate(360deg);-moz-transform: rotate(360deg);-ms-transform: rotate(360deg);-o-transform: rotate(360deg);transform: rotate(360deg);}
+}
+/* Safari and Chrome */
+@-webkit-keyframes counter-clockwise {
+  from {-webkit-transform: rotate(0deg);-o-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(360deg);-o-transform: rotate(360deg);}
+} 
+
+/* 
+ * *******************
+ * 順時針動畫
+ * *******************
+ */
+@keyframes clockwise {
+  from {-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-ms-transform: rotate(0deg);-o-transform: rotate(0deg);transform: rotate(0deg);}
+  to {-webkit-transform: rotate(-360deg);-moz-transform: rotate(-360deg);-ms-transform: rotate(-360deg);-o-transform: rotate(-360deg);transform: rotate(-360deg);}
+}
+/* Safari and Chrome */
+@-webkit-keyframes clockwise {
+  from {-webkit-transform: rotate(0deg);-o-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(-360deg);-o-transform: rotate(-360deg);}
 }
