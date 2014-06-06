@@ -1,9 +1,10 @@
 Just fun !
 =====
 
-![demo](/demo/demo.PNG)
+![demo](/demo/Magic Circle.PNG)
 
 ## Make you magic circle ! ##
+#And I make ur magic circle less lag.
 
 ## Update ##
-*Change to CSS only
+#Less jQuery, More CSS animation
